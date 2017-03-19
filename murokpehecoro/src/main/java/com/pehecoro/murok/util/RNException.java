@@ -2,6 +2,11 @@ package com.pehecoro.murok.util;
 
 public class RNException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7011302283182698251L;
+
 	public RNException() {
 		// TODO Auto-generated constructor stub
 	}

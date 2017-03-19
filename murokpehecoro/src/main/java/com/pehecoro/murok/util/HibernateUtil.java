@@ -17,7 +17,7 @@ public class HibernateUtil {
 			StandardServiceRegistry servico = registradorServico.build();
 			return cfg.buildSessionFactory(servico);
 		} catch(Throwable e){
-			System.out.println("Criação inicial do objeto SessionFactory falhou. Erro: "+e);
+			System.out.println("Initial creation of SessionFactory object has failed. Error: "+e);
 			throw new ExceptionInInitializerError(e);
 		}
 	}

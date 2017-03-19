@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Register user</title>
+</h:head>
+<h:body>
+	<h1>Register user</h1>
+	<h:form id="register">
+		<h:messages/>
+		<h:inputHidden value="#{userBean.user.id}"/>
+		<h:inputHidden value="#{userBean.user.live}"/>
+		
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Name:" for="name"/>
+			<h:inputText id="name" label="Name" value="#{userBean.user.name}" size="30"
+				maxlength="30" required="true" requiredMessage="You need to specify a name">
+				<f:validateLength minimum="10" maximum="30" />
+			</h:inputText>
+		
+			<h:outputLabel value="Race:" for="race"/>
+			<h:selectOneMenu id="race" value="#{userBean.user.race}">
+				<f:selectItem itemValue="human" itemLabel="Human"/>
+				<f:selectItem itemValue="dwarf" itemLabel="Dwarf"/>
+				<f:selectItem itemValue="elf" itemLabel="Elf"/>
+				<f:selectItem itemValue="barbarian" itemLabel="Barbarian"/>
+				<f:selectItem itemValue="ogre" itemLabel="Ogre"/>
+				<f:selectItem itemValue="lotus" itemLabel="Lotus"/>
+				<f:selectItem itemValue="silverFox" itemLabel="Silver Fox"/>
+				<f:selectItem itemValue="centaur" itemLabel="Centaur"/>
+			</h:selectOneMenu>
+			
+			<h:outputLabel value="Birth:" for="birth"/>
+			<h:inputText id="birth" label="Birth" value="#{userBean.user.birth}"
+				size="10" maxlength="10" required="true" requiredMessage="When you were born?">
+			</h:inputText>
+		
+			<h:outputLabel value="e-Mail:" for="email"/>
+			<h:panelGroup>
+				<h:inputText id="email" label="e-Mail" value="#{userBean.user.email}"
+				size="50" maxlength="50" required="true" validatorMessage="Invalid E-mail">
+					<f:validateRegex pattern="[a-zA-Z0-9\-\_\+@[a-zA-Z0-9\-\_\.]+"/>
+				</h:inputText>
+			</h:panelGroup>
+			
+			<h:outputLabel value="Password:" for="password"/>
+			<h:inputSecret id="password" label="Password" value="#{userBean.user.password}"
+				size="10" maxlength="10" required="true" redisplay="true"/>
+				
+			<h:outputLabel value="Confirm Password:" for="confirmpassword"/>
+			<h:inputSecret id="confirmpassword" label="Confirm Password"
+				value="#{userBean.confirmPassword}" size="10" maxlength="10"
+				required="true" redisplay="true" />
+				
+			<h:outputLabel value="Language:" for="language"/>
+			<h:selectOneMenu id="language" value="#{userBean.user.language}">
+				<f:selectItem itemValue="pt_BR" itemLabel="Portuguese"/>
+				<f:selectItem itemValue="en_US" itemLabel="English"/>
+				<f:selectItem itemValue="es_ES" itemLabel="Spanish"/>
+
+			</h:selectOneMenu>
+		
+		</h:panelGrid>
+		
+		<h:commandButton action="#{userBean.save}" value="Save"/>
+		
+		
+	
+	</h:form>
+
+</h:body>
+
+
+</html>

@@ -2,6 +2,11 @@ package com.pehecoro.murok.util;
 
 public class UtilException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4188180975382270881L;
+
 	public UtilException() {
 		// TODO Auto-generated constructor stub
 	}

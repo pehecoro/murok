@@ -2,27 +2,32 @@ package com.pehecoro.murok.util;
 
 public class DAOException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2476429999668727667L;
+
 	public DAOException() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DAOException(String arg0) {
-		super(arg0);
+	public DAOException(String message) {
+		super(message);
 		// TODO Auto-generated constructor stub
 	}
 
-	public DAOException(Throwable arg0) {
-		super(arg0);
+	public DAOException(Throwable cause) {
+		super(cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public DAOException(String arg0, Throwable arg1) {
-		super(arg0, arg1);
+	public DAOException(String message, Throwable cause) {
+		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public DAOException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
-		super(arg0, arg1, arg2, arg3);
+	public DAOException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
 
