@@ -1,8 +1,11 @@
 package com.pehecoro.murok.web;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.*;
+import javax.faces.context.FacesContext;
 
 import com.pehecoro.murok.user.User;
+import com.pehecoro.murok.user.UserRN;
 
 @ManagedBean(name="userBean")
 @RequestScoped
@@ -23,6 +26,27 @@ public class UserBean {
 		this.confirmPassword = confirmPassword;
 	}
 	
+	public String newUser(){
+		this.user = new User();
+		this.user.setLive(true);
+		this.user.setLevel(0);
+		return "/public/user";
+	}
 	
+	public String save(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		
+		String password = this.user.getPassword();
+		if(!password.equals(this.confirmPassword)){
+			FacesMessage facesMessage = new FacesMessage("The passwords doesn't match");
+			context.addMessage(null, facesMessage);
+			return null;
+		}
+		
+		UserRN userRN = new UserRN();
+		userRN.save(this.user);
+		
+		return "usersuccess";
+	}
 	
 }

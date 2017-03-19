@@ -17,7 +17,7 @@
 			<h:outputLabel value="Name:" for="name"/>
 			<h:inputText id="name" label="Name" value="#{userBean.user.name}" size="30"
 				maxlength="30" required="true" requiredMessage="You need to specify a name">
-				<f:validateLength minimum="10" maximum="30" />
+				<f:validateLength minimum="2" maximum="30" />
 			</h:inputText>
 		
 			<h:outputLabel value="Race:" for="race"/>
@@ -35,13 +35,14 @@
 			<h:outputLabel value="Birth:" for="birth"/>
 			<h:inputText id="birth" label="Birth" value="#{userBean.user.birth}"
 				size="10" maxlength="10" required="true" requiredMessage="When you were born?">
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
 			</h:inputText>
 		
 			<h:outputLabel value="e-Mail:" for="email"/>
 			<h:panelGroup>
 				<h:inputText id="email" label="e-Mail" value="#{userBean.user.email}"
 				size="50" maxlength="50" required="true" validatorMessage="Invalid E-mail">
-					<f:validateRegex pattern="[a-zA-Z0-9\-\_\+@[a-zA-Z0-9\-\_\.]+"/>
+					<f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+"/>
 				</h:inputText>
 			</h:panelGroup>
 			
